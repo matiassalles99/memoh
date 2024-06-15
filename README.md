@@ -16,12 +16,7 @@ https://github.com/matiassalles99/memoh/assets/57004457/512f112b-f4c5-4da4-870e-
   gem install memoh
 ```
 
-- You can also install it using brew:
-
-```bash
-  brew tap memoh/memoh
-  brew install memoh
-```
+- Brew will be available shortly
 
 ## Usage
 
