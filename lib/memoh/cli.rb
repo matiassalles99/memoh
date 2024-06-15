@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "thor"
 require "colorize"
 require "active_support/core_ext/object/blank"

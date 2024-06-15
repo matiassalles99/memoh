@@ -13,10 +13,11 @@ module Memoh
       def initialize(persisted_class)
         @persisted_class = persisted_class
         Dir.mkdir(DIRECTORY) unless Dir.exist?(DIRECTORY)
+        super()
       end
 
       def all
-        @objects ||= begin
+        @all ||= begin
           retrieved_json = File.exist?(FILE_PATH) ? JSON.parse(File.read(FILE_PATH)) : []
           retrieved_json.map { |obj| @persisted_class.new.from_json(obj.to_json) }
         end

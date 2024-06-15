@@ -3,7 +3,7 @@
 module Memoh
   module Commands
     module CRUD
-      module Show
+      module Show # :nodoc:
         extend ActiveSupport::Concern
 
         included do
