@@ -1,8 +1,12 @@
 # Memoh - SSH Connections
 
-If you're tired of remembering the IPs, hostnames, passwords and identity files for your ssh connections, then you probably find Memoh useful.
+If you're tired of remembering IPs, hostnames, passwords, and identity files for your SSH connections, then you'll probably find Memoh useful.
 
-Memoh is a lightweight tool that allows you to save configurations for each of your ssh connections. It's very similar to [Termius](https://termius.com/) but runs in your terminal instead of a separate application.
+Memoh is a lightweight tool that allows you to save configurations for each of your SSH connections. It's similar to [Termius](https://termius.com/) but runs in your terminal as a cli instead of a separate application.
+
+
+https://github.com/matiassalles99/memoh/assets/57004457/512f112b-f4c5-4da4-870e-006876e3237c
+
 
 ## Installation
 
@@ -21,7 +25,7 @@ Memoh is a lightweight tool that allows you to save configurations for each of y
 
 ## Usage
 
-- List all commends:
+- List all commands:
 
 ```bash
   memoh
