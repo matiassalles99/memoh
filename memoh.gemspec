@@ -8,17 +8,15 @@ Gem::Specification.new do |spec|
   spec.authors = ["Matias Salles"]
   spec.email = ["matiassalles99@gmail.com"]
 
-  spec.summary = "asdf"
-  spec.description = "asdfasdf"
-  spec.homepage = "https://google.com"
+  spec.summary = "Save your SSH connection details with memoh"
+  spec.description = "Save your SSH connection details with memoh and connect to any saved host by name"
+  spec.homepage = "https://github.com/matiassalles99/memoh"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://google.com"
-  spec.metadata["changelog_uri"] = "https://google.com"
+  spec.metadata["source_code_uri"] = "https://github.com/matiassalles99/memoh"
+  spec.metadata["changelog_uri"] = "https://github.com/matiassalles99/memoh/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -28,7 +26,7 @@ Gem::Specification.new do |spec|
     end
   end
   spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.executables << "memoh"
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activemodel", "~> 7.1", ">= 7.1.3.3"

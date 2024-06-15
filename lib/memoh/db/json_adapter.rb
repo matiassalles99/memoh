@@ -7,16 +7,17 @@ require_relative "abstract_adapter"
 module Memoh
   module DB
     class JSONAdapter < AbstractAdapter # :nodoc:
-      FILE_PATH = "memoh_db.json"
+      DIRECTORY = File.expand_path("~/.memoh")
+      FILE_PATH = File.expand_path("#{DIRECTORY}/memoh_db.json")
 
-      def initialize(persisted_class, file_path = FILE_PATH)
+      def initialize(persisted_class)
         @persisted_class = persisted_class
-        @file_path = file_path
+        Dir.mkdir(DIRECTORY) unless Dir.exist?(DIRECTORY)
       end
 
       def all
         @objects ||= begin
-          retrieved_json = File.exist?(@file_path) ? JSON.parse(File.read(@file_path)) : []
+          retrieved_json = File.exist?(FILE_PATH) ? JSON.parse(File.read(FILE_PATH)) : []
           retrieved_json.map { |obj| @persisted_class.new.from_json(obj.to_json) }
         end
       end
@@ -25,7 +26,7 @@ module Memoh
         current_objs = all
         current_objs << obj
 
-        File.open(@file_path, "w") do |f|
+        File.open(FILE_PATH, "w") do |f|
           f.write(current_objs.to_json)
         end
       end
@@ -37,7 +38,7 @@ module Memoh
         end
         current_objs[index] = obj
 
-        File.open(@file_path, "w") do |f|
+        File.open(FILE_PATH, "w") do |f|
           f.write(current_objs.to_json)
         end
       end
@@ -46,7 +47,7 @@ module Memoh
         current_objs = all
         current_objs.reject! { |co| obj.send(@persisted_class.id_field) == co.send(@persisted_class.id_field) }
 
-        File.open(@file_path, "w") do |f|
+        File.open(FILE_PATH, "w") do |f|
           f.write(current_objs.to_json)
         end
       end
